@@ -1,0 +1,20 @@
+releaseguard:
+  components:
+    catalog:
+      url: http://localhost:${server.port}/demo/components/catalog/health
+      expected-status: 200
+      body-contains: UP
+      timeout: 600ms
+      evidence-url: http://localhost:${server.port}/demo/evidence/catalog
+    payments:
+      url: http://localhost:${server.port}/demo/components/payments/health
+      expected-status: 200
+      body-contains: UP
+      timeout: 600ms
+      evidence-url: http://localhost:${server.port}/demo/evidence/payments
+    identity:
+      url: http://localhost:${server.port}/demo/components/identity/health
+      expected-status: 200
+      body-contains: UP
+      timeout: 600ms
+      evidence-url: http://localhost:${server.port}/demo/evidence/identity

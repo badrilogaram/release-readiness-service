@@ -1,0 +1,20 @@
+# Load with --spring.profiles.active=custom --spring.config.additional-location=file:./examples/
+# Sample addresses for separate local services; replace URLs and response rules as needed.
+releaseguard:
+  components:
+    catalog:
+      url: http://127.0.0.1:8081/actuator/health
+      expected-status: 200
+      body-contains: UP
+      timeout: 1s
+    payments:
+      url: http://127.0.0.1:8082/actuator/health
+      expected-status: 200
+      body-contains: UP
+      timeout: 1s
+  alerts:
+    enabled: false
+  schedule:
+    enabled: false
+  elasticsearch:
+    enabled: false

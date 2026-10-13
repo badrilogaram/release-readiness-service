@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: demo
+      SERVER_ADDRESS: 0.0.0.0
+      RELEASEGUARD_API_KEY: ${RELEASEGUARD_API_KEY:-local-demo-key}
+      RELEASEGUARD_ALERTS_ENABLED: "true"
+      RELEASEGUARD_ALERTS_FROM: releaseguard@example.test
+      RELEASEGUARD_ALERTS_TO: team@example.test
+      SPRING_MAIL_HOST: mailpit
+      SPRING_MAIL_PORT: "1025"
+    volumes:
+      - releaseguard-data:/app/data
+    depends_on:
+      - mailpit
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:8025:8025"
+
+volumes:
+  releaseguard-data:
