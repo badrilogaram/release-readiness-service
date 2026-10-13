@@ -1,4 +1,16 @@
-# Local verification
+# Verification
+
+## GitHub Actions verification — 14 October 2026
+
+[Linux CI run 38459531415](https://github.com/badrilogaram/release-readiness-service/actions/runs/38459531415) passed for source commit `a7d14bd43ccfa1a07e2479c45dff37f639d1ac23` using Java 21.
+
+- Maven verification passed **52 tests**, with zero failures, errors, or skipped tests.
+- The build and all workflow steps succeeded. JaCoCo generated a coverage report, which was uploaded as a workflow artifact.
+- This CI run verifies the build and automated suite; the packaged application demo results below come from the earlier local run.
+
+The date above is in India Standard Time; GitHub records the run on 13 October in UTC. Docker and real SMTP/Elasticsearch integrations remain outside the executed checks.
+
+## Earlier local verification
 
 Verified on **9 October 2026** using Java 21.0.12.1, Apache Maven 3.10.0, and Spring Boot 4.1.1 on Windows.
 
